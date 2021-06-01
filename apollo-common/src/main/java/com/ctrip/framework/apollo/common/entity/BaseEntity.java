@@ -37,23 +37,23 @@ import javax.persistence.PreUpdate;
 public abstract class BaseEntity {
 
   @Id
-  @GeneratedValue(strategy = GenerationType.IDENTITY)
-  @Column(name = "Id")
+  @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "sequence")
+  @Column(name = "id")
   private long id;
 
-  @Column(name = "IsDeleted", columnDefinition = "Bit default '0'")
+  @Column(name = "is_deleted", nullable = false)
   protected boolean isDeleted = false;
 
-  @Column(name = "DataChange_CreatedBy", nullable = false)
+  @Column(name = "created_by", nullable = false)
   private String dataChangeCreatedBy;
 
-  @Column(name = "DataChange_CreatedTime", nullable = false)
+  @Column(name = "created_time", nullable = false)
   private Date dataChangeCreatedTime;
 
-  @Column(name = "DataChange_LastModifiedBy")
+  @Column(name = "last_modified_by")
   private String dataChangeLastModifiedBy;
 
-  @Column(name = "DataChange_LastTime")
+  @Column(name = "last_time")
   private Date dataChangeLastModifiedTime;
 
   public String getDataChangeCreatedBy() {
