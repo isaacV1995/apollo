@@ -23,21 +23,23 @@ import org.hibernate.annotations.Where;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 
 @Entity
-@Table(name = "Privilege")
-@SQLDelete(sql = "Update Privilege set isDeleted = 1 where id = ?")
-@Where(clause = "isDeleted = 0")
+@Table(name = "privilege")
+@SQLDelete(sql = "UPDATE privilege SET is_deleted = TRUE WHERE id = ?")
+@Where(clause = "NOT is_deleted")
+@SequenceGenerator(name = "sequence", sequenceName = "privilege_id_seq", allocationSize = 1)
 public class Privilege extends BaseEntity {
 
-  @Column(name = "Name", nullable = false)
+  @Column(name = "name", nullable = false)
   private String name;
 
-  @Column(name = "PrivilType", nullable = false)
+  @Column(name = "privilege_type", nullable = false)
   private String privilType;
 
-  @Column(name = "NamespaceId")
+  @Column(name = "namespace_id")
   private long namespaceId;
 
   public String getName() {

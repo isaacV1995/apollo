@@ -21,31 +21,28 @@ import com.ctrip.framework.apollo.common.entity.BaseEntity;
 import org.hibernate.annotations.SQLDelete;
 import org.hibernate.annotations.Where;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Lob;
-import javax.persistence.Table;
+import javax.persistence.*;
 
 @Entity
-@Table(name = "Item")
-@SQLDelete(sql = "Update Item set isDeleted = 1 where id = ?")
-@Where(clause = "isDeleted = 0")
+@Table(name = "item")
+@SQLDelete(sql = "UPDATE item SET is_deleted = TRUE WHERE id = ?")
+@Where(clause = "NOT is_deleted")
+@SequenceGenerator(name = "sequence", sequenceName = "item_id_seq", allocationSize = 1)
 public class Item extends BaseEntity {
 
-  @Column(name = "NamespaceId", nullable = false)
+  @Column(name = "namespace_id", nullable = false)
   private long namespaceId;
 
   @Column(name = "key", nullable = false)
   private String key;
 
   @Column(name = "value")
-  @Lob
   private String value;
 
   @Column(name = "comment")
   private String comment;
 
-  @Column(name = "LineNum")
+  @Column(name = "line_num")
   private Integer lineNum;
 
   public String getComment() {
