@@ -36,7 +36,7 @@ public class Item extends BaseEntity {
   @Column(name = "key", nullable = false)
   private String key;
 
-  @Column(name = "value")
+  @Column(name = "value", nullable = false)
   private String value;
 
   @Column(name = "comment")

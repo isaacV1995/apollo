@@ -27,11 +27,11 @@ import java.util.List;
  */
 public interface UserRepository extends PagingAndSortingRepository<UserPO, Long> {
 
-  List<UserPO> findFirst20ByEnabled(int enabled);
+  List<UserPO> findFirst20ByEnabled(boolean enabled);
 
-  List<UserPO> findByUsernameLikeAndEnabled(String username, int enabled);
+  List<UserPO> findByUsernameLikeAndEnabled(String username, boolean enabled);
 
-  List<UserPO> findByUserDisplayNameLikeAndEnabled(String userDisplayName, int enabled);
+  List<UserPO> findByUserDisplayNameLikeAndEnabled(String userDisplayName, boolean enabled);
 
   UserPO findByUsername(String username);
 

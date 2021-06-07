@@ -54,7 +54,7 @@ public class Release extends BaseEntity {
   @Column(name = "comment", nullable = false)
   private String comment;
 
-  @Column(name = "is_abandoned")
+  @Column(name = "is_abandoned", nullable = false)
   private boolean isAbandoned;
 
   public String getReleaseKey() {

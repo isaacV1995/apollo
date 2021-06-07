@@ -91,13 +91,13 @@ public class SpringSecurityUserService implements UserService {
 
   private List<UserPO> findUsers(String keyword) {
     if (StringUtils.isEmpty(keyword)) {
-      return userRepository.findFirst20ByEnabled(1);
+      return userRepository.findFirst20ByEnabled(true);
     }
     List<UserPO> users = new ArrayList<>();
     List<UserPO> byUsername = userRepository
-        .findByUsernameLikeAndEnabled("%" + keyword + "%", 1);
+        .findByUsernameLikeAndEnabled("%" + keyword + "%", true);
     List<UserPO> byUserDisplayName = userRepository
-        .findByUserDisplayNameLikeAndEnabled("%" + keyword + "%", 1);
+        .findByUserDisplayNameLikeAndEnabled("%" + keyword + "%", true);
     if (!CollectionUtils.isEmpty(byUsername)) {
       users.addAll(byUsername);
     }

@@ -31,7 +31,7 @@ import javax.persistence.Table;
 @SequenceGenerator(name = "sequence", sequenceName = "namespace_lock_id_seq", allocationSize = 1)
 public class NamespaceLock extends BaseEntity{
 
-  @Column(name = "namespace_id")
+  @Column(name = "namespace_id", nullable = false)
   private long namespaceId;
 
   public long getNamespaceId() {

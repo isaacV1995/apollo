@@ -53,7 +53,7 @@ public abstract class BaseEntity {
   @Column(name = "last_modified_by")
   private String dataChangeLastModifiedBy;
 
-  @Column(name = "last_time")
+  @Column(name = "last_modified_time")
   private Date dataChangeLastModifiedTime;
 
   public String getDataChangeCreatedBy() {
