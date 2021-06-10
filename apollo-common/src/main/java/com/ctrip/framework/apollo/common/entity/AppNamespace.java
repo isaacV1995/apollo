@@ -31,9 +31,6 @@ import javax.persistence.Entity;
 import javax.persistence.Table;
 
 @Entity
-//@Table(name = "AppNamespace")
-//@SQLDelete(sql = "Update AppNamespace set isDeleted = 1 where id = ?")
-//@Where(clause = "isDeleted = 0")
 @Table(name = "app_namespace")
 @SQLDelete(sql = "UPDATE app_namespace SET is_deleted = TRUE WHERE id = ?")
 @Where(clause = "NOT is_deleted")

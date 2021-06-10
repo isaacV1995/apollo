@@ -30,8 +30,6 @@ import javax.persistence.Table;
 
 @Entity
 @Table(name = "app")
-//@SQLDelete(sql = "Update app set isDeleted = 1 where id = ?")
-//@Where(clause = "isDeleted = 0")
 @SQLDelete(sql = "UPDATE app SET is_deleted = TRUE WHERE id = ?")
 @Where(clause = "NOT is_deleted")
 @SequenceGenerator(name = "sequence", sequenceName = "app_id_seq", allocationSize = 1)

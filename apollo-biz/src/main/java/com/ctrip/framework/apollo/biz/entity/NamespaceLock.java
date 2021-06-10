@@ -27,7 +27,7 @@ import javax.persistence.Table;
 
 @Entity
 @Table(name = "namespace_lock")
-@Where(clause = "NOT deleted")
+@Where(clause = "NOT is_deleted")
 @SequenceGenerator(name = "sequence", sequenceName = "namespace_lock_id_seq", allocationSize = 1)
 public class NamespaceLock extends BaseEntity{
 

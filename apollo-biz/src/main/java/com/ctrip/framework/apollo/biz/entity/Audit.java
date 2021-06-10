@@ -27,9 +27,6 @@ import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 
 @Entity
-//@Table(name = "Audit")
-//@SQLDelete(sql = "Update Audit set isDeleted = 1 where id = ?")
-//@Where(clause = "isDeleted = 0")
 @Table(name = "audit")
 @SQLDelete(sql = "UPDATE audit SET is_deleted = TRUE WHERE id = ?")
 @Where(clause = "NOT is_deleted")
